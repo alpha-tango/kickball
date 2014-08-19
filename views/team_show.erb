@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title><%=params[:team_name]%></title>
+    <link rel="stylesheet" href="home.css" />
+  </head>
+
+  <body>
+    <h1>
+      <%=params[:team_name]%>
+    </h1>
+    <ul>
+
+    <% @league.each do |player| %>
+         <% if player[:team] == params[:team_name] %>
+          <li> <%= player[:first_name] + ' ' +player[:last_name] + ': '%>
+             <a href="/position/<%=player[:position] %>"> <%=player[:position]%> </a>
+          </li>
+         <% end %>
+    <% end %>
+
+    </ul>
+  </body>
+</html>
